@@ -4,9 +4,9 @@
 
 # Step 3 Prepare the Double-Linked List implementation (Complete)
 
-# Step 4 Create the Player class
+# Step 4 Create the Player class (Complete)
 
-# Step 5 Implement the Double-Linked List
+# Step 5 Implement the Double-Linked List (Complete)
 
 # Step 6 Add code optimisation
 
@@ -19,10 +19,8 @@ from app.player import Player
 
 def main():
     player1 = Player("1", "Dat Ngo")
-
     node1 = PlayerNode(player1)
 
-    print(node1)
 
 
 if __name__ == '__main__':

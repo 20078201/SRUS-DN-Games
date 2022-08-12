@@ -21,7 +21,7 @@ class PlayerList:
         self._tail = value
 
     def append(self, value):
-        # Checks if self.head is empty and append an object at the head
+        # Checks if self._head is empty and append an object at the head
         if not self._head:
             self._head = value
             self._tail = value  # set the tail to the value as well as the list only contains one item

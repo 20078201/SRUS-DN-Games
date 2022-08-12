@@ -1,6 +1,6 @@
 # Step 1 - Set up local and remote git repositories (Complete)
 
-# Step 2 Create core class and unit tests
+# Step 2 Create core class and unit tests (Complete)
 
 # Step 3 Prepare the Double-Linked List implementation
 

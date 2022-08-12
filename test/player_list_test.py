@@ -20,6 +20,15 @@ class TestPlayer(unittest.TestCase):
         appended = list1.append(12)
         self.assertFalse(appended, "Item was not appended to the list")
 
+    def test_head(self):
+        """
+        Test whether the tail is equal to the inserted element when the list size is 1
+        """
+        list1 = PlayerList()
+        item = 12
+        appended = list1.append(item)
+        self.assertEqual(list1._tail, item, "Your item does not match!")
+
 
 if __name__ == '__main__':
     unittest.main()

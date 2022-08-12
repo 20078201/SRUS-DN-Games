@@ -1,6 +1,8 @@
 import unittest
 
 from app.player_list import PlayerList
+from app.player_node import PlayerNode
+from app.player import Player
 
 
 class TestPlayer(unittest.TestCase):
@@ -17,8 +19,8 @@ class TestPlayer(unittest.TestCase):
         Test whether an object is appended to the item which will return true
         """
         list1 = PlayerList()
-        appended = list1.append(12)
-        self.assertFalse(appended, "Item was not appended to the list")
+        list1.append(12)
+        self.assertFalse(list1.is_empty, "Item was not appended to the list")
 
     def test_head(self):
         """
@@ -28,6 +30,19 @@ class TestPlayer(unittest.TestCase):
         item = 12
         appended = list1.append(item)
         self.assertEqual(list1._tail, item, "Your item does not match!")
+
+    def test_tail(self):
+        """
+        Test if the item is inserted to the tail
+        """
+        node1 = PlayerNode(Player("1", "Player 1"))
+        node2 = PlayerNode(Player("1", "Player 1"))
+
+        list1 = PlayerList()
+        list1.append(node1)
+        list1.append(node2)
+
+        self.assertEqual(list1.tail, node2, "Your tail node does not equal")
 
 
 if __name__ == '__main__':

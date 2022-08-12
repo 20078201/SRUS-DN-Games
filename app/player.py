@@ -4,4 +4,4 @@ class Player:
         self.name = name
 
     def __str__(self):
-        return f"Player (id: {self.uid}, name: {self.name})"
+        return f"Player (id: {self.uid})"

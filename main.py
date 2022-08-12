@@ -8,7 +8,7 @@
 
 # Step 5 Implement the Double-Linked List (Complete)
 
-# Step 6 Add code optimisation
+# Step 6 Add code optimisation (Complete)
 
 # Step 7 Add Functionality to Double-Linked List
 
@@ -16,11 +16,21 @@
 
 from app.player_node import PlayerNode
 from app.player import Player
+from app.player_list import PlayerList
+
 
 def main():
-    player1 = Player("1", "Dat Ngo")
-    node1 = PlayerNode(player1)
+    node1 = PlayerNode(Player("1", "Player 1"))
+    node2 = PlayerNode(Player("2", "Player 2"))
+    node3 = PlayerNode(Player("3", "Player 3"))
+    node4 = PlayerNode(Player("4", "Player 4"))
 
+    list1 = PlayerList()
+
+    list1.append(node1)
+    list1.append(node2)
+    list1.append(node3)
+    list1.append(node4)
 
 
 if __name__ == '__main__':

@@ -10,11 +10,15 @@ class TestPlayer(unittest.TestCase):
         """
         list1 = PlayerList()
 
-        self.assertFalse(list1.is_empty)
+        self.assertTrue(list1.is_empty)
 
     def test_is_not_empty(self):
+        """
+        Test whether an object is appended to the item which will return true
+        """
         list1 = PlayerList()
-        list1.append(12)
+        appended = list1.append(12)
+        self.assertFalse(appended, "Item was not appended to the list")
 
 
 if __name__ == '__main__':

@@ -80,6 +80,22 @@ class PlayerList:
             # right node from idx node
             node.next.previous = node.previous
 
+    def display(self, forward: bool = True):
+        """
+        Display the contents of the double link list
+        :param forward: can be either set to forward or backward
+        :return: list of objects in given direction
+        """
 
-
-
+        if forward:
+            node = self.head
+            while node.next:
+                print(node)
+                node = node.next
+            print(node)
+        elif not forward:
+            node = self.tail
+            while node.previous:
+                print(node)
+                node = node.previous
+            print(node)

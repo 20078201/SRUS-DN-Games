@@ -1,4 +1,6 @@
 # About
+This project was to create a double link list class using python.
+
 This project is for AT1 project.
 
 ## References

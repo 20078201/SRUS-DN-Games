@@ -20,17 +20,17 @@ from app.player_list import PlayerList
 
 
 def main():
-    node1 = PlayerNode(Player("1", "Player 1"))
-    node2 = PlayerNode(Player("2", "Player 2"))
-    node3 = PlayerNode(Player("3", "Player 3"))
-    node4 = PlayerNode(Player("4", "Player 4"))
-
     list1 = PlayerList()
 
-    list1.append(node1)
-    list1.append(node2)
-    list1.append(node3)
-    list1.append(node4)
+    list1.append_forward(PlayerNode(Player(1, "Player 1")))
+    list1.append_forward(PlayerNode(Player(2, "Player 2")))
+    list1.append_forward(PlayerNode(Player(3, "Player 3")))
+    list1.append_forward(PlayerNode(Player(4, "Player 4")))
+
+    list1.delete_item(4)
+
+    print(list1.head)
+    print(list1.tail)
 
 
 if __name__ == '__main__':

@@ -4,12 +4,11 @@ from app.player_list import PlayerList
 
 
 def main():
-    list1 = PlayerList()
+    player1 = Player(1, "Player 1")
 
-    list1.append_forward(PlayerNode(Player(1, "Player 1")))
-    list1.append_forward(PlayerNode(Player(2, "Player 2")))
-    list1.append_forward(PlayerNode(Player(3, "Player 3")))
-    list1.append_forward(PlayerNode(Player(4, "Player 4")))
+    password = "Password2"
+    player1.add_password(password)
+    print(player1.verify_password("Password1"))
 
 
 if __name__ == '__main__':

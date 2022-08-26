@@ -25,7 +25,7 @@ class PlayerList:
     def tail(self, value):
         self._tail = value
 
-    def append_forward(self, node: PlayerNode):
+    def append_forward_from_tail(self, node: PlayerNode):
         # Checks if self._head is empty and append an object at the head
         if not self._head:
             self._head = node
@@ -41,6 +41,23 @@ class PlayerList:
         # assign the tail to new node
         self.tail = node
         self.tail.previous = previous_node
+
+    def append_new_head(self, node: PlayerNode):
+        # Checks if self._head is empty and append an object at the head
+        if not self._tail:
+            self._head = node
+            self._tail = node  # set the tail to the value as well as the list only contains one item
+
+            self.is_empty = False
+            return
+
+        # set the previous node to be appended
+        previous_node = self._head
+        previous_node.previous = node
+
+        # assign the tail to new node
+        self.head = node
+        self.head.next = previous_node
 
     def delete_head(self):
         # set the new head of the double link list

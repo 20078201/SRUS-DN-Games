@@ -10,10 +10,39 @@ class Player:
     A class for instantiating a player object which excepts id (int) and name (string)
     """
 
-    def __init__(self, uid: int, name: str):
+    def __init__(self, uid: int, name: str, score: int):
         self.uid = uid
         self.name = name
         self._password = None
+        self._score = score
+
+    @property
+    def score(self):
+        return self._score
+
+    @score.setter
+    def score(self, value):
+        self._score = value
+
+    def __eq__(self, other):
+        print(f"{self}")
+        print(f"{other}")
+        return self._score == other._score
+
+    def __ge__(self, other):
+        return self._score >= other._score
+
+    def __gt__(self, other):
+        return self._score > other._score
+
+    def __ne__(self, other):
+        return self._score != other._score
+
+    def __lt__(self, other):
+        return self._score < other._score
+
+    def __le__(self, other):
+        return self._score <= other._score
 
     def __str__(self):
         return f"Player (id: {self.uid})"

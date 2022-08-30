@@ -4,11 +4,10 @@ from app.player_list import PlayerList
 
 
 def main():
-    player1 = Player(1, "Player 1")
+    player1 = Player(1, "Player 1", 100)
+    player2 = Player(2, "Player 2", 100)
 
-    password = "Password2"
-    player1.add_password(password)
-    print(player1.verify_password("Password1"))
+    print(player1 == player2)
 
 
 if __name__ == '__main__':

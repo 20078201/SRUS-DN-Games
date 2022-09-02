@@ -10,7 +10,7 @@ def main():
 
     print(player1 == player2)
 
-    print(find_max_square_dimension(1680, 640))
+    # print(find_max_square_dimension(1680, 640))
 
 
 if __name__ == '__main__':

@@ -116,3 +116,26 @@ class PlayerList:
                 print(node)
                 node = node.previous
             print(node)
+
+    def get_list_of_score(self):
+        """
+        A method for return a dictionary containing key: Player name and value: Score
+        :return: a dictionary of player and their scores
+        """
+        # nodes = []
+        # node = self.head
+        # while node.next:
+        #     nodes.append(node.player.score)
+        #     node = node.next
+        # else:
+        #     nodes.append(node.player.score)
+        # return nodes
+
+        nodes = {}
+        node = self.head
+        while node.next:
+            nodes[node.player.name] = node.player.score
+            node = node.next
+        else:
+            nodes[node.player.name] = node.player.score
+        return nodes

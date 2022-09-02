@@ -25,8 +25,6 @@ class Player:
         self._score = value
 
     def __eq__(self, other):
-        print(f"{self}")
-        print(f"{other}")
         return self._score == other._score
 
     def __ge__(self, other):
@@ -63,3 +61,26 @@ class Player:
         """
 
         return PasswordHasher().verify(self._password, password_to_be_checked)
+
+    @classmethod
+    def qsort(cls, arr):
+        """
+        A static method to sort a list of players in descending orders
+        :return: A sorted list players based on the scores
+        """
+        # base case - when the array is none or contains 1 element
+
+        if len(arr) <= 1:
+            return arr
+        else:
+            #  set the pivot to the first element
+            pivot = arr[0]
+            pivots = [x for x in arr if x == pivot]
+            less = [x for x in arr[1:] if x < pivot]
+            greater = [x for x in arr[1:] if x > pivot]
+
+            # if duplicate exist then the pivots list count will be greater than 1
+            if len(pivots) >= 1:
+                return cls.qsort(greater) + pivots + cls.qsort(less)
+            else:
+                return cls.qsort(greater) + [pivot] + cls.qsort(less)

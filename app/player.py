@@ -45,6 +45,9 @@ class Player:
     def __str__(self):
         return f"Player (id: {self.uid})"
 
+    def __repr__(self):
+        return f"'Player({self.uid}, '{self.name}', {self._score})'"
+
     def add_password(self, password: str):
         """
         A method for adding password to the player object
@@ -62,8 +65,8 @@ class Player:
 
         return PasswordHasher().verify(self._password, password_to_be_checked)
 
-    @classmethod
-    def qsort(cls, arr):
+    @staticmethod
+    def qsort_descending(arr) -> []:
         """
         A static method to sort a list of players in descending orders
         :return: A sorted list players based on the scores
@@ -81,6 +84,6 @@ class Player:
 
             # if duplicate exist then the pivots list count will be greater than 1
             if len(pivots) >= 1:
-                return cls.qsort(greater) + pivots + cls.qsort(less)
-            else:
-                return cls.qsort(greater) + [pivot] + cls.qsort(less)
+                return Player.qsort_descending(greater) + pivots + Player.qsort_descending(less)
+
+            return Player.qsort_descending(greater) + [pivot] + Player.qsort_descending(less)

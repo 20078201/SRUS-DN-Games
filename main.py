@@ -24,11 +24,14 @@ def main():
 
     # scores = mylist.get_list_of_score()
 
-    scores = [4, 4, 4, 5, 5, 6, 7] + random.sample(range(1, 21), 20)
+    scores = [4, 4, 4] + random.sample(range(1, 10_000), 20)
     # print(find_max_square_dimension(1680, 640))
 
+    print("---------------------- Before ----------------------- ")
     print(scores)
-    print(Player.qsort(list(scores)))
+    print('')
+    print("---------------------- After ------------------------ ")
+    print(Player.qsort_descending(list(scores)))
 
 
 if __name__ == '__main__':

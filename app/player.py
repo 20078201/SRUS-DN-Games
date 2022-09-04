@@ -43,7 +43,7 @@ class Player:
         return self._score <= other._score
 
     def __str__(self):
-        return f"Player (id: {self.uid})"
+        return f"Player Object (id: {self.uid}, name: {self.name}, score: {self._score}%)"
 
     def __repr__(self):
         return f"'Player({self.uid}, '{self.name}', {self._score})'"
@@ -66,9 +66,10 @@ class Player:
         return PasswordHasher().verify(self._password, password_to_be_checked)
 
     @staticmethod
-    def qsort_descending(arr) -> []:
+    def qsort_descending(arr: []) -> []:
         """
         A static method to sort a list of players in descending orders
+        :param arr: An array of ints containing players score
         :return: A sorted list players based on the scores
         """
         # base case - when the array is none or contains 1 element

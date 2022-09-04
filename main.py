@@ -22,16 +22,8 @@ def main():
     mylist.append_forward_from_tail(PlayerNode(player5))
     mylist.append_forward_from_tail(PlayerNode(player6))
 
-    # scores = mylist.get_list_of_score()
-
-    scores = [4, 4, 4] + random.sample(range(1, 10_000), 20)
-    # print(find_max_square_dimension(1680, 640))
-
-    print("---------------------- Before ----------------------- ")
-    print(scores)
-    print('')
-    print("---------------------- After ------------------------ ")
-    print(Player.qsort_descending(list(scores)))
+    for x in mylist:
+        print(x)
 
 
 if __name__ == '__main__':

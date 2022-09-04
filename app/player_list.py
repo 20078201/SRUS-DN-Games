@@ -139,3 +139,27 @@ class PlayerList:
         else:
             nodes[node.player.name] = node.player.score
         return nodes
+
+    def __iter__(self):
+        """
+        Dunder method for making PlayerList iterable
+        """
+        current = self.head
+        while current is not None:
+            yield current.player
+            current = current.next
+
+    def __len__(self) -> int:
+        """
+        Allow the list to return total number of element
+        :return: The total number of element in the list. (int)
+        """
+        return len([player for player in self])
+
+    def __getitem__(self, index: int) -> Player:
+        """
+        Get a specific item in the list by using the index number
+        :param index: A number representing the location of the element in the list. (Starting from 0)
+        :return: A player object
+        """
+        return [player for player in self][index]

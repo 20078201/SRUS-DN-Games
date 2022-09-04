@@ -106,6 +106,23 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(player1 <= player2, True)
         self.assertEqual(player1 <= player3, True)
 
+    def test_player_scores_are_descending_order(self):
+        """
+        Test to see if the order returned is descending
+        """
+        player1 = Player(1, "Player 1", 50)
+        player2 = Player(2, "Player 2", 75)
+        player3 = Player(3, "Player 3", 60)
+        player4 = Player(4, "Player 4", 85)
+        player5 = Player(5, "Player 5", 35)
+
+        players_score = [player1.score, player2.score, player3.score, player4.score, player5.score]
+        player_sorted = Player.qsort_descending(players_score)
+        expected_list = [85, 75, 60, 50, 35]
+
+        self.assertListEqual(player_sorted, expected_list,
+                             f"Your sorted list did not match. \n Check your numbers in your array")
+
 
 if __name__ == "__main__":
     unittest.main()

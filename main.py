@@ -26,22 +26,38 @@ class BinarySearchTree:
             return parent_node
         else:
             parent_node = TreeNode(arr.popleft())
+            # Loop for the array until empty
             while arr:
-                if not parent_node.occupied:
-                    value = arr.popleft()
-                    if value <= parent_node.data:
+                # take the left most item in the deque and set it to value
+                value = arr.popleft()
+
+                # Determine which branch to follow by comparing the value to the parent node data (In this case '4')
+                if value <= parent_node.data:  # Travel left of parent Node
+                    if parent_node.left is None:
                         parent_node.left = TreeNode(value)
-                    elif value > parent_node.data:
+
+                    child_node = parent_node.left
+                    if value <= child_node.data:
+                        child_node.left = TreeNode(value)
+                    elif value > child_node.data:
+                        child_node.right = TreeNode(value)
+
+                elif value > parent_node.data:  # Travel right of parent Node
+                    if parent_node.right is None:
                         parent_node.right = TreeNode(value)
-                if parent_node.left and parent_node.right:
-                    parent_node.occupied = True
+
+                    child_node = parent_node.right
+                    if value <= child_node.data:
+                        child_node.left = TreeNode(value)
+                    elif value > child_node.data:
+                        child_node.right = TreeNode(value)
+
             return parent_node
 
     def sorted_data(self):
         pass
 
 
-a = BinarySearchTree(['4', '2', '5'])
+a = BinarySearchTree(['4', '2', '5', '1', '6'])
 
 print(a.data())
-

@@ -1,30 +1,47 @@
-from app.player_node import PlayerNode
-from app.player import Player
-from app.player_list import PlayerList
-from app.plot import find_max_square_dimension
-
-import random
+from collections import deque
 
 
-def main():
-    player1 = Player(1, "Player 1", 98)
-    player2 = Player(2, "Player 2", 45)
-    player3 = Player(3, "Player 3", 25)
-    player4 = Player(4, "Player 4", 50)
-    player5 = Player(5, "Player 5", 100)
-    player6 = Player(6, "Player 6", 25)
+class TreeNode:
+    def __init__(self, data, left=None, right=None):
+        self.data = data
+        self.left = left
+        self.right = right
+        self.occupied = False
 
-    mylist = PlayerList()
-    mylist.append_forward_from_tail(PlayerNode(player1))
-    mylist.append_forward_from_tail(PlayerNode(player2))
-    mylist.append_forward_from_tail(PlayerNode(player3))
-    mylist.append_forward_from_tail(PlayerNode(player4))
-    mylist.append_forward_from_tail(PlayerNode(player5))
-    mylist.append_forward_from_tail(PlayerNode(player6))
+    def __str__(self):
+        return f'TreeNode(data={self.data}, left={self.left}, right={self.right})'
 
-    for x in mylist:
-        print(x)
+    def __repr__(self):
+        return f'TreeNode(data={self.data}, left={self.left}, right={self.right})'
 
 
-if __name__ == '__main__':
-    main()
+class BinarySearchTree:
+    def __init__(self, tree_data: list):
+        self.list1 = deque(tuple(tree_data))
+
+    def data(self):
+        arr = self.list1
+        if len(arr) == 1:
+            parent_node = TreeNode(arr.popleft())
+            return parent_node
+        else:
+            parent_node = TreeNode(arr.popleft())
+            while arr:
+                if not parent_node.occupied:
+                    value = arr.popleft()
+                    if value <= parent_node.data:
+                        parent_node.left = TreeNode(value)
+                    elif value > parent_node.data:
+                        parent_node.right = TreeNode(value)
+                if parent_node.left and parent_node.right:
+                    parent_node.occupied = True
+            return parent_node
+
+    def sorted_data(self):
+        pass
+
+
+a = BinarySearchTree(['4', '2', '5'])
+
+print(a.data())
+

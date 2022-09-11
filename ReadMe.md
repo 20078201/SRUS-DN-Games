@@ -15,3 +15,6 @@ Python if expression (Inline if statement)
 
 Python dunder method `__hash__`
 - https://www.pythontutorial.net/python-oop/python-__hash__/
+
+Binary Search Tree reference material
+- https://www.youtube.com/watch?v=8wQbIOdbfCk

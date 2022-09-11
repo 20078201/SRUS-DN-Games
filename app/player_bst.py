@@ -1,5 +1,5 @@
 from collections import deque
-from tree_node import TreeNode
+from player_bnode import TreeNode
 
 
 class BinarySearchTree:

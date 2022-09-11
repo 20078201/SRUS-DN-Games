@@ -4,11 +4,11 @@ from app.player_list import PlayerList
 from app.player_node import PlayerNode
 from app.player import Player
 
-node1 = PlayerNode(Player(1, "Player 1"))
-node2 = PlayerNode(Player(2, "Player 2"))
-node3 = PlayerNode(Player(3, "Player 3"))
-node4 = PlayerNode(Player(4, "Player 4"))
-node5 = PlayerNode(Player(5, "Player 5"))
+node1 = PlayerNode(Player(1, "Player 1", 49))
+node2 = PlayerNode(Player(2, "Player 2", 35))
+node3 = PlayerNode(Player(3, "Player 3", 76))
+node4 = PlayerNode(Player(4, "Player 4", 85))
+node5 = PlayerNode(Player(5, "Player 5", 24))
 
 
 class TestPlayer(unittest.TestCase):

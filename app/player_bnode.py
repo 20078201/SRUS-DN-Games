@@ -1,7 +1,7 @@
-from player import Player
+from .player import Player
 
 
-class TreeNode:
+class PlayerBNode:
     """
     A class for making tree nodes for a binary search tree
     """
@@ -13,22 +13,27 @@ class TreeNode:
 
     # String comparison works on the first letter of the string
     # https://stackoverflow.com/questions/58531100/why-5-is-greater-than-10-python
-    def insert(self, data):
+    def insert(self, data: Player):
         """
         A method for recursively inserting tree node object to the Binary Search Tree
         :param data: a number value that is type string
         :return: void
         """
-        if int(data) <= int(self._data):  # check to see if the root Node data value is greater than the value inputted
+        # Check if key are the same
+        if data.name == self._data.name:
+            print(f"{data.name} is the same as {self._data}")
+            self.data = data
+        # check to see if the root Node data value is greater than the value inputted
+        elif data.name <= self._data.name:
             if self._left is not None:  # if the left is occupied
                 self._left.insert(data)  # if occupied then recursively call insert method
             else:
-                self._left = TreeNode(data)  # then assign a node with that data
-        elif int(data) > int(self._data):
+                self._left = PlayerBNode(data)  # then assign a node with that data
+        elif data.name > self._data.name:
             if self._right is not None:  # if the right node of root is occupied,
                 self._right.insert(data)
             else:
-                self._right = TreeNode(data)  # if not then assign a node with that data
+                self._right = PlayerBNode(data)  # if not then assign a node with that data
 
     def inorder(self, currentNode, sorted_array):
         """

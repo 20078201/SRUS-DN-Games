@@ -1,19 +1,20 @@
 from collections import deque
-from player_bnode import TreeNode
+from .player_bnode import PlayerBNode
+from .player import Player
 
 
-class BinarySearchTree:
+class PlayerBST:
     """
     A class for making a binary search tree object
     """
 
-    def __init__(self, tree_data):
-        tree_data = deque(tree_data)
+    def __init__(self):
+        # tree_data = deque(tree_data)
         self.root = None
         # A while loop for generating the binary search tree with input data (tree_data)
-        while tree_data:
-            data = tree_data.popleft()
-            self.insert(data)
+        # while tree_data:
+        #     data = tree_data.popleft()
+        #     self.insert(data)
 
     def data(self):
         """
@@ -32,13 +33,13 @@ class BinarySearchTree:
             self.root.inorder(self.root, sorted_array)
             return sorted_array
 
-    def insert(self, data):
+    def insert(self, data: Player):
         """
         A method for inserting new tree nodes in the binary search tree
-        :param data: a number of type string
+        :param data: Player object
         :return: void
         """
         if self.root is not None:
             self.root.insert(data)
         else:
-            self.root = TreeNode(data)
+            self.root = PlayerBNode(data)

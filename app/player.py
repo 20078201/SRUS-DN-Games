@@ -11,6 +11,11 @@ class Player:
     """
 
     def __init__(self, uid: int, name: str, score: int):
+        """
+        :param uid: int (Cant be less than or equal to 0
+        :param name: string representing the name of the player
+        :param score: int (Between 0 -> 100)
+        """
         self.uid = uid
         self.name = name
         self._password = None

@@ -20,16 +20,16 @@ class PlayerBNode:
         :return: void
         """
         # Check if key are the same
-        if data.name == self._data.name:
-            print(f"{data.name} is the same as {self._data}")
+        if data == self._data:
+            # print(f"{data.name} is the same as {self._data}")
             self.data = data
         # check to see if the root Node data value is greater than the value inputted
-        elif data.name <= self._data.name:
+        elif data <= self._data:
             if self._left is not None:  # if the left is occupied
                 self._left.insert(data)  # if occupied then recursively call insert method
             else:
                 self._left = PlayerBNode(data)  # then assign a node with that data
-        elif data.name > self._data.name:
+        elif data > self._data:
             if self._right is not None:  # if the right node of root is occupied,
                 self._right.insert(data)
             else:
@@ -46,10 +46,23 @@ class PlayerBNode:
             self.inorder(currentNode._left,
                          sorted_array)  # if yes, recursively call the inorder method on the left branch until no
             # node is found
-            sorted_array.append(currentNode._data)  # append the tree node data to the array
+            sorted_array.append(currentNode.data)  # append the tree node data to the array
 
-            self.inorder(currentNode._right, sorted_array)  # recursively call the inorder method on the left branch
+            self.inorder(currentNode._right,
+                         sorted_array)  # recursively call the inorder method on the left branch
             # until no node is found
+
+    def search(self, currentNode, player: Player):
+        if currentNode is None:
+            raise ValueError
+
+        if currentNode.data == player:
+            return currentNode.data
+
+        if currentNode.data < player:
+            return self.search(currentNode._right, player)
+
+        return self.search(currentNode._left, player)
 
     @property
     def data(self):

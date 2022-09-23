@@ -25,7 +25,7 @@ class PlayerList:
     def tail(self, value):
         self._tail = value
 
-    def append_forward_from_tail(self, node: PlayerNode):
+    def append_forward(self, node: PlayerNode):
         # Checks if self._head is empty and append an object at the head
         if not self._head:
             self._head = node

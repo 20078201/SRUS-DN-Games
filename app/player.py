@@ -1,8 +1,7 @@
 """
 A player module that contain a player class
 """
-
-from argon2 import PasswordHasher
+from argon2 import PasswordHasher, exceptions
 
 
 class Player:
@@ -61,14 +60,16 @@ class Player:
         """
         self._password = PasswordHasher().hash(password)
 
-    def verify_password(self, password_to_be_checked: str):
+    def verify_password(self, password_to_be_checked: str) -> bool:
         """
         A method to verify a user entered string to the object password
         :param password_to_be_checked: a string that the method will check with object password
         :return: a boolean value
         """
-
-        return PasswordHasher().verify(self._password, password_to_be_checked)
+        try:
+            PasswordHasher().verify(self._password, password_to_be_checked)
+        except exceptions.VerifyMismatchError:
+            return False
 
     @staticmethod
     def qsort_descending(arr: []) -> []:

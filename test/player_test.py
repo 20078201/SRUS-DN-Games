@@ -1,7 +1,5 @@
 import unittest
 
-import argon2.exceptions
-
 from app.player import Player
 
 
@@ -37,11 +35,10 @@ class TestPlayer(unittest.TestCase):
         """
         Test password is matching by checking the verification method
         """
-        with self.assertRaises(argon2.exceptions.VerifyMismatchError):
-            player = Player(1, "Player 1", 55)
-            password = "Password1"
-            player.add_password(password)
-            player.verify_password("Password2")
+        player = Player(1, "Player 1", 55)
+        password = "Password1"
+        player.add_password(password)
+        self.assertFalse(player.verify_password("Password2"))
 
     def test_players_have_same_score(self):
         """
